@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import LocaisColeta from "./components/LocaisColeta";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <nav style={{ padding: "1rem", background: "#eee" }}>
+        <Link to="/">Início</Link> | <Link to="/locais">Locais de Coleta</Link>
+      </nav>
+      <Routes>
+        <Route path="/" element={<h1 style={{ padding: "2rem" }}>Bem-vindo ao ReciclaTech ♻️</h1>} />
+        <Route path="/locais" element={<LocaisColeta />} />
+      </Routes>
+    </Router>
   );
 }
 
 export default App;
+

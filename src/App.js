@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import LocaisColeta from "./components/LocaisColeta";
 import MapaColeta from "./components/MapaColeta";
 import Conscientizacao from "./components/Conscientizacao";
+import FormularioPosto from "./components/FormularioPosto";
 
 function App() {
   return (
@@ -12,6 +13,8 @@ function App() {
         <Link to="/conscientizacao">Conscientização</Link>
         <Link to="/locais">Locais de Coleta</Link>
         <Link to="/mapa">Mapa</Link>
+	<Link to="/novo-posto">Novo Posto</Link>
+
       </nav>
 
       <Routes>
@@ -19,6 +22,7 @@ function App() {
         <Route path="/conscientizacao" element={<Conscientizacao />} />
         <Route path="/locais" element={<LocaisColeta />} />
         <Route path="/mapa" element={<MapaColeta />} />
+	<Route path="/novo-posto" element={<FormularioPosto />} />
       </Routes>
     </Router>
   );

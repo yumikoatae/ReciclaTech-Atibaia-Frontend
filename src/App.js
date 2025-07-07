@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import LocaisColeta from "./components/LocaisColeta";
-import MapaColeta from "./components/MapaColeta";
 import Conscientizacao from "./components/Conscientizacao";
 import FormularioPosto from "./components/FormularioPosto";
 
@@ -12,8 +11,7 @@ function App() {
         <Link to="/">Início</Link>
         <Link to="/conscientizacao">Conscientização</Link>
         <Link to="/locais">Locais de Coleta</Link>
-        <Link to="/mapa">Mapa</Link>
-	<Link to="/novo-posto">Novo Posto</Link>
+      	<Link to="/novo-posto">Novo Posto</Link>
 
       </nav>
 
@@ -21,8 +19,7 @@ function App() {
         <Route path="/" element={<h1 style={{ padding: "2rem" }}>Bem-vindo ao ReciclaTech ♻️</h1>} />
         <Route path="/conscientizacao" element={<Conscientizacao />} />
         <Route path="/locais" element={<LocaisColeta />} />
-        <Route path="/mapa" element={<MapaColeta />} />
-	<Route path="/novo-posto" element={<FormularioPosto />} />
+      	<Route path="/novo-posto" element={<FormularioPosto />} />
       </Routes>
     </Router>
   );

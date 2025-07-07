@@ -23,7 +23,7 @@ const FormularioPosto = () => {
 
     try {
       await axios.post(
-	"https://recicla-tech-atibaia-backend.onrender.com/api/postos/", 
+	"https://reciclatech-atibaia-backend.onrender.com/api/postos/", 
 	formData,
 	{
 	  headers: {

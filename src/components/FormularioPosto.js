@@ -39,9 +39,14 @@ const FormularioPosto = () => {
         feedback: "",
       });
     } catch (error) {
-      setMensagem("❌ Erro ao adicionar posto. Verifique e tente novamente.");
-      console.error(error);
-    }
+      if (error.response) {
+        console.error("Erro de resposta:", error.response.data);
+        setMensagem("❌ Erro: " + JSON.stringify(error.response.data));
+      } else {
+        console.error("Erro inesperado:", error);
+        setMensagem("❌ Erro inesperado. Verifique o console.");
+      }
+    }    
   };
 
   return (

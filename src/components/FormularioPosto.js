@@ -22,7 +22,15 @@ const FormularioPosto = () => {
     e.preventDefault();
 
     try {
-      await axios.post("https://recicla-tech-atibaia-backend.onrender.com/api/postos/", formData);
+      await axios.post(
+	"https://recicla-tech-atibaia-backend.onrender.com/api/postos/", 
+	formData,
+	{
+	  headers: {
+	   "Content-Type": "application/json",
+	  },
+	}
+      );
       setMensagem("✅ Posto de coleta adicionado com sucesso!");
       setFormData({
         nome: "",

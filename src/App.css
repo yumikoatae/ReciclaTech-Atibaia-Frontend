@@ -1,38 +1,42 @@
+/* src/App.css */
+
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f0f0; /* Cor de fundo suave */
+}
+
+nav {
+  padding: 1rem;
+  background: #4CAF50; /* Cor de fundo da navegação */
+  display: flex;
+  justify-content: space-around; /* Espaçamento igual entre os links */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
+}
+
+nav a {
+  color: white; /* Cor do texto dos links */
+  text-decoration: none; /* Remove o sublinhado */
+  font-weight: bold; /* Texto em negrito */
+}
+
+nav a:hover {
+  text-decoration: underline; /* Sublinha ao passar o mouse */
+}
+
+h1 {
+  padding: 2rem;
+  color: #333; /* Cor do texto do cabeçalho */
+  font-size: 2.5rem; /* Tamanho da fonte */
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+footer {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: #282c34; /* Cor de fundo do rodapé */
+  color: white; /* Cor do texto do rodapé */
 }

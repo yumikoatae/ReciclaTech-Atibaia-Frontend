@@ -12,12 +12,23 @@ L.Icon.Default.mergeOptions({
 
 const LocaisColeta = () => {
   const [postos, setPostos] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     getPostosDeColeta().then(setPostos).catch(console.error);
   }, []);
 
-  const postosComCoordenadas = postos.filter(
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const postosFiltrados = postos.filter(
+    (posto) =>
+      posto.nome.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      posto.endereco.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const postosComCoordenadas = postosFiltrados.filter(
     (posto) => posto.latitude !== null && posto.longitude !== null
   );
 
@@ -25,38 +36,63 @@ const LocaisColeta = () => {
     <div style={{ padding: "2rem" }}>
       <h2>Postos de Coleta</h2>
 
+      <input
+        type="text"
+        placeholder="Buscar por nome ou endereço..."
+        value={searchTerm}
+        onChange={handleSearchChange}
+        style={{ padding: "0.5rem", width: "100%", marginBottom: "1rem" }}
+      />
+
       {postos.length === 0 ? (
         <p>Carregando...</p>
       ) : (
         <>
-          <ul>
-            {postos.map((posto) => (
-              <li key={posto.id}>
-                <strong>{posto.nome}</strong><br />
-                {posto.endereco}<br />
-                {posto.horario_funcionamento}
-              </li>
-            ))}
-          </ul>
-
-          <h3 style={{ marginTop: "2rem" }}>Visualize no mapa</h3>
-          <div style={{ height: "60vh", marginTop: "1rem" }}>
-            <MapContainer center={[-23.117, -46.556]} zoom={13} style={{ height: "100%", width: "100%" }}>
-              <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org">OpenStreetMap</a>'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              />
-              {postosComCoordenadas.map((posto) => (
-                <Marker key={posto.id} position={[posto.latitude, posto.longitude]}>
-                  <Popup>
-                    <strong>{posto.nome}</strong><br />
-                    {posto.endereco}<br />
+          {postosFiltrados.length === 0 ? (
+            <p>Nenhum posto encontrado.</p>
+          ) : (
+            <>
+              <ul>
+                {postosFiltrados.map((posto) => (
+                  <li key={posto.id}>
+                    <strong>{posto.nome}</strong>
+                    <br />
+                    {posto.endereco}
+                    <br />
                     {posto.horario_funcionamento}
-                  </Popup>
-                </Marker>
-              ))}
-            </MapContainer>
-          </div>
+                  </li>
+                ))}
+              </ul>
+
+              <h3 style={{ marginTop: "2rem" }}>Visualize no mapa</h3>
+              <div style={{ height: "60vh", marginTop: "1rem" }}>
+                <MapContainer
+                  center={[-23.117, -46.556]}
+                  zoom={13}
+                  style={{ height: "100%", width: "100%" }}
+                >
+                  <TileLayer
+                    attribution='&copy; <a href="https://www.openstreetmap.org">OpenStreetMap</a>'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                  />
+                  {postosComCoordenadas.map((posto) => (
+                    <Marker
+                      key={posto.id}
+                      position={[posto.latitude, posto.longitude]}
+                    >
+                      <Popup>
+                        <strong>{posto.nome}</strong>
+                        <br />
+                        {posto.endereco}
+                        <br />
+                        {posto.horario_funcionamento}
+                      </Popup>
+                    </Marker>
+                  ))}
+                </MapContainer>
+              </div>
+            </>
+          )}
         </>
       )}
     </div>

@@ -1,0 +1,32 @@
+.home-container {
+    padding: 4rem 2rem;
+    text-align: center;
+    background-color: #e0f2f1; /* Alinhado com a imagem */
+    color: #333; /* Text color */
+    border-radius: 8px; /* Ajustado */
+    margin: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.home-container h1 {
+    font-size: 2.5rem;
+    font-weight: bold; /* Para destacar o título */
+    margin-bottom: 1rem;
+    color: #4caf50; /* Verde destacado */
+}
+
+.highlight {
+    color: #4caf50; /* A mesma cor do destaque */
+}
+
+.home-container p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #555; /* Alinhado com a imagem */
+}
+
+.home-image {
+    max-width: 300px; /* Aumentado para maior visibilidade */
+    height: auto;
+    margin-top: 1rem;
+}

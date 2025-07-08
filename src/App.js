@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Home from "./components/Home";
 import LocaisColeta from "./components/LocaisColeta";
 import Conscientizacao from "./components/Conscientizacao";
 import FormularioPosto from "./components/FormularioPosto";
@@ -16,7 +17,7 @@ function App() {
       </nav>
 
       <Routes>
-        <Route path="/" element={<h1 style={{ padding: "2rem" }}>Bem-vindo ao ReciclaTech ♻️</h1>} />
+        <Route path="/" element={<Home />} />
         <Route path="/conscientizacao" element={<Conscientizacao />} />
         <Route path="/locais" element={<LocaisColeta />} />
       	<Route path="/novo-posto" element={<FormularioPosto />} />

@@ -1,26 +1,45 @@
-// src/components/Conscientizacao.js
 import React from "react";
+import "./Conscientizacao.css";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import LocaisColeta from "./LocaisColeta";
 
 const Conscientizacao = () => {
   return (
-    <div style={{ padding: "2rem" }}>
-      <h2>Por que se importar com o lixo eletrônico?</h2>
-      <p>
-        O descarte incorreto de lixo eletrônico pode liberar metais pesados no solo e na água,
-        prejudicando a saúde humana e o meio ambiente. Componentes como baterias, placas e
-        monitores contêm substâncias tóxicas que precisam de tratamento adequado.
-      </p>
-      <p>
-        Sempre que possível, encaminhe seus eletrônicos para postos de coleta especializados.
-      </p>
-      <img
-        src="https://upload.wikimedia.org/wikipedia/commons/3/32/Ewaste.jpg"
-        alt="Lixo eletrônico"
-        style={{ width: "100%", maxWidth: "600px", marginTop: "1rem" }}
-      />
-    </div>
+    <section className="conscientizacao-container">
+      <h3 className="section-title">
+        <span role="img" aria-label="Manual icon">📖</span> Manual de Descarte do Lixo Eletrônico
+      </h3>
+      <div className="info-boxes">
+        <div className="info-box left-box">
+          <h4>O QUE É LIXO ELETRÔNICO?</h4>
+          <p>
+            Lixo eletrônico, também conhecido como e-lixo, refere-se a qualquer tipo de equipamento elétrico ou eletrônico descartado, abrangendo desde computadores e smartphones até televisores e eletrodomésticos.
+          </p>
+          <h4>QUAL É O PROBLEMA DO LIXO ELETRÔNICO?</h4>
+          <p>
+            O lixo eletrônico contém substâncias tóxicas e sua rápida obsolescência gera um problema ambiental. O descarte inadequado contribui para a perda de recursos valiosos e a contaminação do ambiente. Reciclagem e conscientização são essenciais para enfrentar esse desafio.
+          </p>
+        </div>
+        <div className="info-box right-box">
+          <h4>ENTÃO, COMO FAÇO PARA DESCARTAR?</h4>
+          <p>Para descartar corretamente o lixo eletrônico, siga estas etapas:</p>
+          <ol>
+            <li>Verificar os pontos de coleta autorizados na sua região</li>
+            <li>Doação ou reutilização</li>
+            <li>Limpar os dados pessoais</li>
+            <li>Desconectar baterias e cabos</li>
+            <li>Evitar o descarte no lixo comum</li>
+          </ol>
+          <Link to="/locais" className="btn-pontos-coleta">
+            Pontos de Coleta
+          </Link>
+        </div>
+      </div>
+    </section>
   );
 };
 
 export default Conscientizacao;
+
+
 

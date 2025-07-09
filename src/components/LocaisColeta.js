@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getPostosDeColeta } from "../api";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
+import './LocaisColeta.css'; // Importar o arquivo CSS
 
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
@@ -33,15 +34,15 @@ const LocaisColeta = () => {
   );
 
   return (
-    <div style={{ padding: "2rem" }}>
-      <h2>Postos de Coleta</h2>
-
+    <div className="container">
+      <h2>Postos de Coleta em Atibaia</h2>
+      
       <input
         type="text"
-        placeholder="Buscar por nome ou endereço..."
+        placeholder="Digite a palavra-chave aqui..."
         value={searchTerm}
         onChange={handleSearchChange}
-        style={{ padding: "0.5rem", width: "100%", marginBottom: "1rem" }}
+        className="search-input"
       />
 
       {postos.length === 0 ? (
@@ -51,48 +52,43 @@ const LocaisColeta = () => {
           {postosFiltrados.length === 0 ? (
             <p>Nenhum posto encontrado.</p>
           ) : (
-            <>
-              <ul>
-                {postosFiltrados.map((posto) => (
-                  <li key={posto.id}>
+            <div className="postos-container">
+              {postosFiltrados.map((posto) => (
+                <div className="posto-card" key={posto.id}>
+                  <h3>{posto.nome}</h3>
+                  <p><strong>Endereço:</strong> {posto.endereco}</p>
+                  <p><strong>Horário de funcionamento:</strong> {posto.horario_funcionamento}</p>
+                  <p><strong>Feedback:</strong> {posto.feedback}</p>
+                </div>
+              ))}
+            </div>
+          )}
+          <div className="map-container">
+            <MapContainer
+              center={[-23.117, -46.556]}
+              zoom={13}
+              style={{ height: "100%", width: "100%" }}
+            >
+              <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org">OpenStreetMap</a>'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+              {postosComCoordenadas.map((posto) => (
+                <Marker
+                  key={posto.id}
+                  position={[posto.latitude, posto.longitude]}
+                >
+                  <Popup>
                     <strong>{posto.nome}</strong>
                     <br />
                     {posto.endereco}
                     <br />
                     {posto.horario_funcionamento}
-                  </li>
-                ))}
-              </ul>
-
-              <h3 style={{ marginTop: "2rem" }}>Visualize no mapa</h3>
-              <div style={{ height: "60vh", marginTop: "1rem" }}>
-                <MapContainer
-                  center={[-23.117, -46.556]}
-                  zoom={13}
-                  style={{ height: "100%", width: "100%" }}
-                >
-                  <TileLayer
-                    attribution='&copy; <a href="https://www.openstreetmap.org">OpenStreetMap</a>'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                  />
-                  {postosComCoordenadas.map((posto) => (
-                    <Marker
-                      key={posto.id}
-                      position={[posto.latitude, posto.longitude]}
-                    >
-                      <Popup>
-                        <strong>{posto.nome}</strong>
-                        <br />
-                        {posto.endereco}
-                        <br />
-                        {posto.horario_funcionamento}
-                      </Popup>
-                    </Marker>
-                  ))}
-                </MapContainer>
-              </div>
-            </>
-          )}
+                  </Popup>
+                </Marker>
+              ))}
+            </MapContainer>
+          </div>
         </>
       )}
     </div>
@@ -100,5 +96,3 @@ const LocaisColeta = () => {
 };
 
 export default LocaisColeta;
-
-

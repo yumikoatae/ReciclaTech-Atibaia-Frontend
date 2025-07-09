@@ -1,0 +1,55 @@
+.container {
+  padding: 4rem 2rem;
+  background-color: #e0f2f1;
+  color: whitesmoke;
+  border-radius: 8px;
+  margin: 2rem;
+}
+  
+  h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #336633;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .search-input {
+    padding: 0.8rem 1rem;
+    width: 100%;
+    max-width: 1000px; /* Limita o tamanho em telas grandes */
+    margin: 0 auto 1rem auto; /* Centraliza horizontalmente */
+    display: block;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+  }  
+  
+  .postos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .posto-card {
+    background-color: #8BC34A;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin: 0.5rem;
+    flex: 1 1 calc(30% - 1rem); /* Adaptável a 3 cartões por linha */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .posto-card h3 {
+    color: white;
+  }
+  
+  .map-container {
+    margin-top: 2rem;
+    height: 60vh;
+  }
+  

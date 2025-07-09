@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./FormularioPosto.css"; // <- importa o CSS aqui
 
 const FormularioPosto = () => {
   const [formData, setFormData] = useState({
@@ -23,13 +24,13 @@ const FormularioPosto = () => {
 
     try {
       await axios.post(
-	"https://reciclatech-atibaia-backend.onrender.com/api/postos/", 
-	formData,
-	{
-	  headers: {
-	   "Content-Type": "application/json",
-	  },
-	}
+        "https://reciclatech-atibaia-backend.onrender.com/api/postos/",
+        formData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
       );
       setMensagem("✅ Posto de coleta adicionado com sucesso!");
       setFormData({
@@ -46,17 +47,43 @@ const FormularioPosto = () => {
         console.error("Erro inesperado:", error);
         setMensagem("❌ Erro inesperado. Verifique o console.");
       }
-    }    
+    }
   };
 
   return (
-    <div style={{ padding: "2rem" }}>
+    <div className="formulario-container">
       <h2>Adicionar Posto de Coleta</h2>
       <form onSubmit={handleSubmit}>
-        <input type="text" name="nome" placeholder="Nome" value={formData.nome} onChange={handleChange} required /><br />
-        <input type="text" name="endereco" placeholder="Endereço" value={formData.endereco} onChange={handleChange} required /><br />
-        <input type="text" name="horario_funcionamento" placeholder="Horário de funcionamento" value={formData.horario_funcionamento} onChange={handleChange} required /><br />
-        <textarea name="feedback" placeholder="Feedback (opcional)" value={formData.feedback} onChange={handleChange} /><br />
+        <input
+          type="text"
+          name="nome"
+          placeholder="Nome"
+          value={formData.nome}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="text"
+          name="endereco"
+          placeholder="Endereço"
+          value={formData.endereco}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="text"
+          name="horario_funcionamento"
+          placeholder="Horário de funcionamento"
+          value={formData.horario_funcionamento}
+          onChange={handleChange}
+          required
+        />
+        <textarea
+          name="feedback"
+          placeholder="Feedback (opcional)"
+          value={formData.feedback}
+          onChange={handleChange}
+        />
         <button type="submit">Cadastrar</button>
       </form>
       {mensagem && <p>{mensagem}</p>}
@@ -65,4 +92,3 @@ const FormularioPosto = () => {
 };
 
 export default FormularioPosto;
-

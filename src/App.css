@@ -1,33 +1,40 @@
-/* src/App.css */
-
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
-  background-color: #f0f0f0; /* Cor de fundo suave */
+  background-color: #f2f9f1; /* Cor de fundo da página */
 }
 
 nav {
-  padding: 1rem;
-  background: #4CAF50; /* Cor de fundo da navegação */
+  background-color: white; /* Fundo branco */
+  padding: 1.5rem 0;
   display: flex;
-  justify-content: space-around; /* Espaçamento igual entre os links */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
+  justify-content: center;
+  gap: 3rem;
 }
 
 nav a {
-  color: white; /* Cor do texto dos links */
-  text-decoration: none; /* Remove o sublinhado */
-  font-weight: bold; /* Texto em negrito */
+  color: #2e7d32; /* Verde escuro */
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-transform: uppercase; /* Caixa alta */
+  transition: color 0.3s ease;
 }
 
 nav a:hover {
-  text-decoration: underline; /* Sublinha ao passar o mouse */
+  color: #66b266; /* Verde mais claro no hover */
 }
 
-h1 {
-  padding: 2rem;
-  color: #333; /* Cor do texto do cabeçalho */
-  font-size: 2.5rem; /* Tamanho da fonte */
+.logo-container {
+  text-align: center;
+  background-color: white;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+}
+
+.logo {
+  max-width: 180px;
+  height: auto;
 }
 
 .App {
@@ -35,8 +42,22 @@ h1 {
 }
 
 footer {
-  margin-top: 2rem;
-  padding: 1rem;
-  background: #282c34; /* Cor de fundo do rodapé */
-  color: white; /* Cor do texto do rodapé */
+  background-color: #e0f2f1;
+  text-align: center;
+  padding: 0.5rem 1rem; /* Altura mais baixa */
+  font-size: 0.9rem; /* Texto um pouco menor */
+  border-top: 1px solid #ccc;
+  color: #333;
+}
+
+footer a {
+  color: #2e7d32;
+  text-decoration: none;
+  margin: 0 0.5rem;
+  transition: color 0.3s ease;
+  font-weight: 500;
+}
+
+footer a:hover {
+  color: #66b266;
 }

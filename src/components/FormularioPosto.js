@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./FormularioPosto.css"; // <- importa o CSS aqui
+import "./FormularioPosto.css";
 
-const FormularioPosto = () => {
+const PostoForm = () => {
   const [formData, setFormData] = useState({
     nome: "",
     endereco: "",
@@ -27,9 +27,7 @@ const FormularioPosto = () => {
         "https://reciclatech-atibaia-backend.onrender.com/api/postos/",
         formData,
         {
-          headers: {
-            "Content-Type": "application/json",
-          },
+          headers: { "Content-Type": "application/json" },
         }
       );
       setMensagem("✅ Posto de coleta adicionado com sucesso!");
@@ -51,9 +49,10 @@ const FormularioPosto = () => {
   };
 
   return (
-    <div className="formulario-container">
-      <h2>Adicionar Posto de Coleta</h2>
-      <form onSubmit={handleSubmit}>
+    <section className="posto-form">
+      <h2 className="posto-form__title">Adicionar Posto de Coleta</h2>
+
+      <form className="posto-form__form" onSubmit={handleSubmit}>
         <input
           type="text"
           name="nome"
@@ -61,7 +60,9 @@ const FormularioPosto = () => {
           value={formData.nome}
           onChange={handleChange}
           required
+          className="posto-form__input"
         />
+
         <input
           type="text"
           name="endereco"
@@ -69,7 +70,9 @@ const FormularioPosto = () => {
           value={formData.endereco}
           onChange={handleChange}
           required
+          className="posto-form__input"
         />
+
         <input
           type="text"
           name="horario_funcionamento"
@@ -77,18 +80,23 @@ const FormularioPosto = () => {
           value={formData.horario_funcionamento}
           onChange={handleChange}
           required
+          className="posto-form__input"
         />
+
         <textarea
           name="feedback"
           placeholder="Feedback (opcional)"
           value={formData.feedback}
           onChange={handleChange}
+          className="posto-form__textarea"
         />
-        <button type="submit">Cadastrar</button>
+
+        <button type="submit" className="posto-form__button">Cadastrar</button>
       </form>
-      {mensagem && <p>{mensagem}</p>}
-    </div>
+
+      {mensagem && <p className="posto-form__mensagem">{mensagem}</p>}
+    </section>
   );
 };
 
-export default FormularioPosto;
+export default PostoForm;

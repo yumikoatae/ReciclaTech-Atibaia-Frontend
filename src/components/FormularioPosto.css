@@ -1,4 +1,4 @@
-.formulario-container {
+.posto-form {
     background-color: #e0f2f1;
     max-width: 600px;
     margin: 2rem auto;
@@ -7,20 +7,20 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   }
   
-  .formulario-container h2 {
+  .posto-form__title {
     text-align: center;
     color: #2e7d32;
     margin-bottom: 1.5rem;
   }
   
-  .formulario-container form {
+  .posto-form__form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
   }
   
-  .formulario-container input,
-  .formulario-container textarea {
+  .posto-form__input,
+  .posto-form__textarea {
     padding: 0.75rem 1rem;
     border: 1px solid #cce2d4;
     border-radius: 8px;
@@ -28,12 +28,12 @@
     font-family: Arial, sans-serif;
   }
   
-  .formulario-container textarea {
+  .posto-form__textarea {
     resize: vertical;
     min-height: 100px;
   }
   
-  .formulario-container button {
+  .posto-form__button {
     background-color: #8BC34A;
     color: white;
     font-weight: bold;
@@ -44,13 +44,13 @@
     transition: background-color 0.3s ease;
   }
   
-  .formulario-container button:hover {
-    background-color: #8BC34A;
+  .posto-form__button:hover {
+    background-color: #76a838;
   }
   
-  .formulario-container p {
+  .posto-form__mensagem {
     margin-top: 1rem;
     font-weight: bold;
     text-align: center;
-  }
+  }  
   
